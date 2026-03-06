@@ -11,12 +11,7 @@ dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 const app = express();
 
-// CORS setup for your deployed frontend
-app.use(cors({
-  origin: "https://snack-inventory-1.onrender.com",
-  credentials: true
-}));
-
+app.use(cors());
 app.use(express.json());
 
 // Routes
@@ -33,9 +28,10 @@ mongoose
   .then(() => {
     console.log("MongoDB Connected Successfully");
 
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
-      console.log(`Server running at port ${PORT}`);
+    app.listen(process.env.PORT, () => {
+      console.log(
+        `Server running at: http://localhost:${process.env.PORT}/snacks`
+      );
     });
   })
   .catch((error) => {
