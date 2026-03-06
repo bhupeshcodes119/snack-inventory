@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:3000/snacks"
+  baseURL: "https://snack-inventory-backend.onrender.com/snacks"
 });
 
 export const getSnacks = () => API.get("/");
