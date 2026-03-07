@@ -1,7 +1,8 @@
 import axios from "axios";
 
+// Hardcode Render backend URL (your live backend)
 const API = axios.create({
-  baseURL: "http://localhost:3000/snacks"
+  baseURL: import.meta.env.VITE_API_URL
 });
 
 export const getSnacks = () => API.get("/");
